@@ -1,0 +1,78 @@
+/*  Loading  */
+.text-loading {
+    height: 1rem;
+    background: #ededed;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.text-loading:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+    to right,
+    #eeeeee -3%,
+    #dddddd 20%,
+    #eeeeee 68%
+    );
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Page */
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Publication */
+.publication{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "photo title"
+                       "photo text1"
+                       "photo text2";
+  width: 600px;
+  align-items: center;
+}
+
+.photo{
+  justify-self: center;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  grid-area: photo;
+}
+
+div > .text-loading:nth-child(2){
+  width: 100px;
+  grid-area: title;
+}
+
+div > .text-loading:nth-child(3){
+  grid-area: text1;
+}
+
+div > .text-loading:nth-child(4){
+  grid-area: text2;
+}
